@@ -13,3 +13,22 @@ Matches.MatchRoute = Ember.Route.extend({
     return this.store.find('match', params.match_id);
   },
 });
+App.AddCommentAndEditRoute = Ember.Route.extend({
+activate: function(){
+this.controllerFor('comment').setProperties({
+'editMode': true
+});
+},
+
+});
+App.AddCommentsRoute = App.AddAndEditCommentRoute.extend({
+model: function(){
+return Em.Object.create({});
+},
+
+renderTemplate: function(){
+this.render('addcomments', {
+controller: 'addComment'
+});
+}
+});
