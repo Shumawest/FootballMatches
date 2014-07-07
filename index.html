@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Matches</title>
+  <link rel="stylesheet" href="css/">
+  <link rel="stylesheet" href="css/">
+</head>
+<body>
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/handlebars.js"></script>
+<script src="js/libs/ember.js"></script>
+<script src="js/libs/ember-data.js"></script>
+
+<script src="js/templates.js"></script>
+<script src="js/app.js"></script>
+
+<script src="js/routes/match.js"></script>
+<script src="js/routes/matches.js"></script>
+<script src="js/router.js"></script>
+<script src="js/controllers/comment.js"></script>
+<script src="js/controllers/addComent.js"></script>
+<script src="js/models/match.js"></script>
+
+
+
+<script type="text/x-handlebars" data-template-name='matches'>  
+<ul>
+{{#each}}
+  <li>
+  {{#link-to 'match' id}}{{title}}{{/link-to}}
+  </li>
+{{/each}}
+</ul>
+</script>
+
+</body>
+<script type="text/x-handlebars" data-template-name='match'>  
+
+<ul>
+    <li>
+	Счет:
+	{{score}} <br/>
+	Голы:
+	{{name}} <br/>
+	Текущее время:
+    {{time}}
+	</li>
+	<ul>
+	
+<p>	
+{{#link-to 'addComment' }}AddComent{{/link-to}}
+
+</p>
+</script>
+
+<script type="text/x-handlebars" data-template-name='addComment'>  
+
+<label for="comment">your comment</label>
+{{input value=comment}}
+
+<button {{action 'save'}}>save</button>
+</script>
+
+
+</body>
+
+
+</html>
